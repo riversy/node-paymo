@@ -1,2 +1,21 @@
 # node-paymo
-NodeJS wrapper for Paymo API
+
+Paymo API wrapper for NodeJS
+
+## Transpile
+
+```bash
+gulp
+```
+
+## Test
+
+```bash
+npm test
+```
+
+## Bump up version
+
+```
+npm version <version>
+```
