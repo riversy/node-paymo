@@ -1,23 +1,30 @@
-import request from 'request';
+import Url from './utils/url';
 
 const ENDPOINT_URL = "https://app.paymoapp.com/api";
 
 class Paymo {
-    constructor(user, pass = 'X') {
+    constructor(username, pass = 'X') {
 
+        this.authParams = {username, pass};
+        this.session = null;
+        this.url = new Url();
+    }
 
-
-
+    list(entity, options = {}) {
 
     }
 
-    getAuthUrl(user, pass) {
+    get(entity, id) {
 
     }
 
+    put(entity, data = {}) {
 
+    }
 
+    update(entity, id) {
 
+    }
 }
 
 export default Paymo;
