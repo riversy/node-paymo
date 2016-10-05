@@ -35,8 +35,6 @@
     "gulp-babel": "^6.1.1",
     "gulp-clean": "0.3.1",
     "gulp-conventional-changelog": "0.7.0",
-    "jasmine-expect": "2.0.0-beta2",
-    "jest-cli": "0.8.1",
     "run-sequence": "1.1.5"
   },
   "dependencies": {
