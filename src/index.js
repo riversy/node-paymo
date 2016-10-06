@@ -3,9 +3,9 @@ import Url from './utils/url';
 const ENDPOINT_URL = "https://app.paymoapp.com/api";
 
 class Paymo {
-    constructor(username, pass = 'X') {
+    constructor(user, pass = 'X') {
 
-        this.authParams = {username, pass};
+        this.auth = {user, pass};
         this.session = null;
         this.url = new Url();
     }
