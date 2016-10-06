@@ -3,7 +3,7 @@ let gulp = require('gulp');
 let eslint = require('gulp-eslint');
 
 const PATH_SRC = ['./src/**/*.js'];
-const PATH_DIST = ['./dist'];
+const PATH_DIST = 'dist';
 
 gulp.task('default', ['build']);
 
