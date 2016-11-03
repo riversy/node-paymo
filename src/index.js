@@ -1,11 +1,16 @@
 import Url from './utils/url';
-
-const ENDPOINT_URL = "https://app.paymoapp.com/api";
+import Requester from './utils/requester';
 
 class Paymo {
     constructor(user, pass = 'X') {
 
-        this.auth = {user, pass};
+        console.log(user);
+
+        if (!user){
+            throw new Error("AUTH params are required.");
+        }
+
+        this.request = new Requester({user, pass});
         this.session = null;
         this.url = new Url();
     }
@@ -18,11 +23,16 @@ class Paymo {
 
     }
 
-    put(entity, data = {}) {
+    create(entity, data = {}) {
 
     }
 
-    update(entity, id) {
+    update(entity, id, data = {}) {
+
+
+    }
+
+    remove(entity, id) {
 
     }
 }
