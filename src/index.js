@@ -7,7 +7,6 @@ class Paymo {
             throw new Error("AUTH params are required.");
         }
         this.requester = new Requester({user, pass});
-        this.session = null;
         this.url = new Url();
     }
 

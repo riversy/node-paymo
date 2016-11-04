@@ -5,6 +5,7 @@ export default class Request {
     construct({user, pass}) {
         this.auth = {user, pass};
         this.request = request;
+        this.session = null;
     }
 
     get(url) {
