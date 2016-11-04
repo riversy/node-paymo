@@ -10,40 +10,47 @@ export default class Requester {
         this.session = false;
     }
 
-    get(url) {
+    get(uri) {
         return new Promise((resolve, reject) => {
             this.getSessionId()
                 .then((sessionId) => {
-                    console.log(sessionId);
-                    resolve({});
+                    let headers = {
+                        'X-Session': sessionId
+                    };
+                    return this.request({uri, headers});
                 })
+                .then((response) => resolve(response))
                 .catch((error) => reject(error));
         });
     }
 
-    post(url, {data = {}}) {
+    post(uri, {data = {}}) {
         return new Promise((resolve, reject) => {
             this.getSessionId()
                 .then((sessionId) => {
-                    console.log(sessionId);
-                    resolve({});
-
-
-
-
-
+                    let headers = {
+                        'X-Session': sessionId
+                    };
+                    let body = data;
+                    let method = 'POST';
+                    return this.request({uri, headers, method, body});
                 })
+                .then((response) => resolve(response))
                 .catch((error) => reject(error));
         });
     }
 
-    del(url) {
+    del(uri) {
         return new Promise((resolve, reject) => {
             this.getSessionId()
                 .then((sessionId) => {
-                    console.log(sessionId);
-                    resolve({});
+                    let headers = {
+                        'X-Session': sessionId
+                    };
+                    let method = 'DELETE';
+                    return this.request({uri, headers, method});
                 })
+                .then((response) => resolve(response))
                 .catch((error) => reject(error));
         });
     }
@@ -59,11 +66,11 @@ export default class Requester {
             }
 
             let url = new Url();
-            let sessionUrl = url.build('sessions');
+            let uri = url.build('sessions');
             let auth = this.auth;
             let json = true;
 
-            request(sessionUrl, {auth, json})
+            request({uri, auth, json})
                 .then((response) => {
                     let sessions = response['sessions'];
                     if (sessions && sessions.length){
@@ -75,10 +82,13 @@ export default class Requester {
 
                     let method = 'POST';
                     let body = {};
-                    return request(sessionUrl, {auth, json, body, method});
+                    return request({uri, auth, json, body, method});
                 })
                 .then((response) => {
                     let sessions = response['sessions'];
+                    if (!sessions.length){
+                        throw new Error("Can't create session.");
+                    }
                     let session = _.first(sessions);
                     this.session = session.id;
                     resolve(this.session);
@@ -86,6 +96,4 @@ export default class Requester {
                 .catch((error) => reject(error));
         });
     }
-
-
 }
