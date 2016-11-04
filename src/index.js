@@ -10,8 +10,21 @@ class Paymo {
         this.url = new Url();
     }
 
-    list(entity, where = {}) {
-        let url = this.url.build(entity, {where});
+    list(entity, options = {where: false, include: false}) {
+
+        let include, where;
+        if (Array.isArray(options)) {
+            include = false;
+            where = options;
+        } else {
+            include = options.include ? options.include : false;
+            where = options.where ? options.where : false;
+        }
+
+        let url = this.url.build(entity, {include, where});
+
+        console.log(url);
+
         return this.requester.get(url);
     }
 
