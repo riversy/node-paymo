@@ -1,4 +1,3 @@
-
 import {expect} from 'chai';
 import Url from './index';
 let url = new Url();
@@ -56,7 +55,6 @@ describe("URL Builder", function(){
         ).to.be.equal(
             'https://app.paymoapp.com/api/tasks/21147?include=tasklists'
         );
-
     });
 
     it("should build Get URLs with one include field", function(){

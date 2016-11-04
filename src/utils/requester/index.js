@@ -3,18 +3,25 @@ import request from 'request';
 export default class Request {
 
     construct({user, pass}) {
-
+        this.auth = {user, pass};
+        this.request = request;
     }
 
-    get(url, {auth_params = false, session_id = false}) {
-
+    get(url) {
+        return new Promise((resolve, reject) => {
+            resolve({});
+        });
     }
 
-    post(url, {data = {}, auth_params = false, session_id = false}) {
-
+    post(url, {data = {}}) {
+        return new Promise((resolve, reject) => {
+            resolve({});
+        });
     }
 
-    del(url, {auth_params = false, session_id = false}) {
-
+    del(url) {
+        return new Promise((resolve, reject) => {
+            resolve({});
+        });
     }
 }
