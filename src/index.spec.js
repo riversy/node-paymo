@@ -79,7 +79,7 @@ describe("PaymoApp API Wrapper: If this promised correctly ", function(){
 
     before(function(){
         paymo = new PaymoApp('X');
-        ///TODO: Make request method fake
+        ///TODO: Make requestPromise method fake
     });
 
     it("should be Promise as a [list] method result", function(){
