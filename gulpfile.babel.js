@@ -2,7 +2,7 @@ let babel = require('gulp-babel');
 let gulp = require('gulp');
 let eslint = require('gulp-eslint');
 
-const PATH_SOURCE = ['./src/**/*.js'];
+const PATH_SOURCE = './src/**/*.js';
 const PATH_DIST = 'dist';
 
 gulp.task('default', ['build']);
@@ -21,7 +21,6 @@ gulp.task('build', ['lint'], function() {
 });
 
 gulp.task('watch', ['build'], function() {
-    return gulp.watch([
-        PATH_DIST,
-    ], ['build']);
+    return gulp.watch(PATH_SOURCE, ['build']);
 });
+
