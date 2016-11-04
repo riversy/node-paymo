@@ -26,7 +26,24 @@ let paymo = Paymo('<USERNAME>', '<PASSWORD>');
 
 ## Methods 
 
-This part of module wasn't implemented yet.
+There's the list of available methods. 
+
+...
+
+## For developers
+
+You need to install development dependencies in the case to make some changes.  
+
+```
+npm install 
+gulp watch
+```
+
+If you want to test things, just type:
+
+```
+npm test
+```
 
 ## Help us make it better
 
